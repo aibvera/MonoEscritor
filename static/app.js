@@ -26,7 +26,9 @@ const calculateMonkey = async() => {
             result.innerHTML = result_text;
             loading.innerHTML = "Listo";
         } else {
-            alert('No se procesó correcatmente el texto. Reviselo.');
+            alert('No se procesó correctamente el texto. Reviselo. No se permiten valores numéricos');
+            loading.innerHTML = "Error";
+            result.innerHTML = "";
         }
 
     } catch (error) {

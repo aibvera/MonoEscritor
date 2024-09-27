@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'monkey.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost:5432/monkey',
+        default='postgresql://abv_postgre_user:E11OxyRTudXBtNjEja9Zl93xP3TcCZUo@dpg-crr79d08fa8c73elib40-a/abv_postgre',
         conn_max_age=600
     )
 }

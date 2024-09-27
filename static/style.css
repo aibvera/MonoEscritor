@@ -1,0 +1,36 @@
+body {
+    background: black;
+}
+
+h1 {
+    color: red;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gif {
+    width: 70%;
+}
+
+.inputText {
+    margin-top: 25px;
+}
+
+.submit {
+    margin-top: 20px;
+}
+
+.loading {
+    color: rgb(135, 135, 135);
+    margin-top: 30px;
+}
+
+.result {
+    color: white;
+}

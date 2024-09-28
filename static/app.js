@@ -18,8 +18,8 @@ const calculateMonkey = async() => {
         const response_0 = await fetch(`/process/probab/${str}`)
         const data_0 = await response_0.json();
         if (data_0.message == 'success') {
-            loading.innerHTML = "Calculando...";
             probab.innerHTML = `La probabilidad de que el mono tipee "${str}" es de 1 en ${data_0.probab}`;
+            loading.innerHTML = "Tipeando...";
             result.innerHTML = "";
         } else {
             alert('No se procesó correctamente el texto. Reviselo. No se permiten valores numéricos');

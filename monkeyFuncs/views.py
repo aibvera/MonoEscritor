@@ -30,8 +30,8 @@ def return_monkey_probab(request, stri):
         return JsonResponse({'message': 'error', 'error': 'Campo faltante'}, status=400)
 
     # Procesar y devolver:
-    probab = probab(str(stri))
-    if probab != 'Error':
-        return JsonResponse({'message': 'success', 'probab': f'{probab:,}'})
+    prob = probab(str(stri))
+    if prob != 'Error':
+        return JsonResponse({'message': 'success', 'probab': f'{prob:,}'})
     else:
         return JsonResponse({'message': 'error', 'error': 'Caracteres inválidos'}, status=400)

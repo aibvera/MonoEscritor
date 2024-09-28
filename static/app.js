@@ -16,7 +16,7 @@ const calculateMonkey = async() => {
 
         // Cambios en pantalla y probabilidad:
         const response_0 = await fetch(`/process/${str}/probab`)
-        const data_0 = await response.json();
+        const data_0 = await response_0.json();
         if (data.message == 'success') {
             loading.innerHTML = "Calculando...";
             probab.innerHTML = `La probabilidad de que el mono tipee "${str}" es de 1 en ${data_0.probab}`;

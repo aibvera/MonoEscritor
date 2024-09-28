@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .monkeyFunc import monkey_writting
 from django.http import JsonResponse
-import json
 
 # Create your views here.
 
@@ -17,7 +16,7 @@ def return_monkey_metrics(request, stri):
         return JsonResponse({'message': 'error', 'error': 'Campo faltantes'}, status=400)
 
     # Procesar y devolver:
-    iters, duration = monkey_writting(str(stri))
+    iters, duration, probab = monkey_writting(str(stri))
     if iters != 'Error' and duration != 'Error':
         data = {'iters': f'{iters:,}', 'duration': round(duration, 2)}
         return JsonResponse({'message': 'success', 'data': data})

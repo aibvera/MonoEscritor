@@ -11,9 +11,14 @@ const initialLoad = async() => {
 const calculateMonkey = async() => {
     try {
 
-        // Parámetros iniciales:
+        // Parámetro inicial:
         const str = inputText.value;
+
+        // Cambios en pantalla:
+        let probs = Array(str.length).fill(0).map(() => Math.pow(1 / 63, -1));
+        let probab = Math.floor(probs.reduce((acc, curr) => acc * curr, 1));
         loading.innerHTML = "Calculando...";
+        probab.innerHTML = `La probabilidad de que el mono tipee "${str}" es de 1 en ${probab.toLocaleString()}`;
         result.innerHTML = "";
 
         // Traer métricas del proceso:

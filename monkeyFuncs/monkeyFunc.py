@@ -1,6 +1,7 @@
 import string
 import random
 import time
+import math
 
 # Listas de caracteres posibles:
 letters_low = list(string.ascii_lowercase)
@@ -26,6 +27,7 @@ def monkey_writting(sentence: str, characters=chars):
     --------
     - iters: Iteraciones que realizó el programa.
     - duration: Duración (en segundos) del programa.
+    - probab: Probabilidad N (1 en N) de que el mono tipee la cadena de texto ingresada.
     '''
     iters = 0
     start = time.time()
@@ -38,6 +40,8 @@ def monkey_writting(sentence: str, characters=chars):
         return 'Error', 'Error'
     else:
         result = ''.join(random.choices(characters, k=len(sentence)))
+        probs = [(1/len(chars))**-1 for i in range(len(sentence))]
+        probab = int(math.prod(probs))
         while True:
             iters += 1
             if result == sentence:
@@ -45,4 +49,4 @@ def monkey_writting(sentence: str, characters=chars):
                 break
             else:
                 result = result[1:] + random.choices(characters)[0]
-        return iters, duration
+        return iters, duration, probab

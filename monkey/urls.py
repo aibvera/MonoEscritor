@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index_view, name='index'),
     path('process/<str:stri>', views.return_monkey_metrics, name='process'),
-    path('process/<str:stri>/probab', views.return_monkey_probab, name='process')
+    path('process/probab/<str:stri>', views.return_monkey_probab, name='process')
 ]

@@ -15,7 +15,7 @@ const calculateMonkey = async() => {
         const str = inputText.value;
 
         // Cambios en pantalla y probabilidad:
-        const response_0 = await fetch(`/process/${str}/probab`)
+        const response_0 = await fetch(`/process/probab/${str}`)
         const data_0 = await response_0.json();
         if (data.message == 'success') {
             loading.innerHTML = "Calculando...";

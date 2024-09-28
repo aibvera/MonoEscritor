@@ -37,10 +37,12 @@ def monkey_writting(sentence: str, characters=chars):
     if not validation:
         return 'Error', 'Error'
     else:
+        result = ''.join(random.choices(characters, k=len(sentence)))
         while True:
             iters += 1
-            result = ''.join(random.choices(characters, k=len(sentence)))
             if result == sentence:
                 duration = time.time() - start
                 break
+            else:
+                result = result[1:] + random.choices(characters)[0]
         return iters, duration

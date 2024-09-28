@@ -40,8 +40,6 @@ def monkey_writting(sentence: str, characters=chars):
         return 'Error', 'Error'
     else:
         result = ''.join(random.choices(characters, k=len(sentence)))
-        probs = [(1/len(chars))**-1 for i in range(len(sentence))]
-        probab = int(math.prod(probs))
         while True:
             iters += 1
             if result == sentence:
@@ -49,4 +47,18 @@ def monkey_writting(sentence: str, characters=chars):
                 break
             else:
                 result = result[1:] + random.choices(characters)[0]
-        return iters, duration, probab
+        return iters, duration
+
+
+# Función de probabilidad:
+def probab(sentence: str):
+    validation = True
+    for char in sentence:
+        if char not in chars:
+            validation = False
+            break
+    if not validation:
+        return 'Error', 'Error'
+    else:
+        probs = [(1/len(chars))**-1 for i in range(len(sentence))]
+        return int(math.prod(probs))

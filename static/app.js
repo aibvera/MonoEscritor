@@ -14,12 +14,18 @@ const calculateMonkey = async() => {
         // Parámetro inicial:
         const str = inputText.value;
 
-        // Cambios en pantalla:
-        let probs = Array(str.length).fill(0).map(() => Math.pow(1 / 63, -1));
-        let probab = Math.floor(probs.reduce((acc, curr) => acc * curr, 1));
-        loading.innerHTML = "Calculando...";
-        probab.innerHTML = `La probabilidad de que el mono tipee "${str}" es de 1 en ${probab.toLocaleString()}`;
-        result.innerHTML = "";
+        // Cambios en pantalla y probabilidad:
+        const response_0 = await fetch(`/process/${str}/probab`)
+        const data_0 = await response.json();
+        if (data.message == 'success') {
+            loading.innerHTML = "Calculando...";
+            probab.innerHTML = `La probabilidad de que el mono tipee "${str}" es de 1 en ${data_0.probab}`;
+            result.innerHTML = "";
+        } else {
+            alert('No se procesó correctamente el texto. Reviselo. No se permiten valores numéricos');
+            loading.innerHTML = "Error";
+            result.innerHTML = "";
+        }
 
         // Traer métricas del proceso:
         const response = await fetch(`/process/${str}`)
